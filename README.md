@@ -1,5 +1,7 @@
 # AI Gateway's tool loop replays Gemini 3 function calls without their thought signatures
 
+Reported in https://github.com/vercel/ai/issues/24727.
+
 When a Gemini 3 model calls a gateway-executed tool (`gateway.tools.parallelSearch` or `gateway.tools.exaSearch`), AI Gateway runs the search and calls the model again with the results. In that second call, the model's own function call goes back without its thought signature. The gateway's Google provider then injects `skip_thought_signature_validator`, which Google says "should be a last resort as it will negatively impact model performance", and every such call returns this warning. It happens inside a single `generateText` call, with no messages persisted or rebuilt by the application.
 
 ## Reproduction
