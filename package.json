@@ -1,0 +1,13 @@
+{
+  "name": "ai-gateway-gemini-thought-signature",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "repro": "node repro.mjs",
+    "control": "node control.mjs"
+  },
+  "dependencies": {
+    "ai": "7.0.164",
+    "zod": "4.6.7"
+  }
+}
